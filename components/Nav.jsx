@@ -30,13 +30,17 @@ const Nav = () => {
              <p className="logo_text">Promptopia</p>
         </Link>
         <div className="sm:flex hidden">
-            {/* {true ?( */}
              {session?.user ?(
                 <div className='flex gap-3 md:gap5'>
                     <Link className='black_btn' href='/create-prompt'>
                         Create Post
                     </Link>
-                    <button type='button' onClick={singOut} className='outline_btn'>
+                    <button 
+                    type='button' 
+                    onClick={
+                        () =>{signOut();}}
+                    className='outline_btn'
+                    >
                         Sign Out
                     </button>
                     <Link href='/profile'>
@@ -51,7 +55,6 @@ const Nav = () => {
                 </div>
             ): (
             <>
-                {/* {false &&  */}
                  {providers && 
                 Object.values(providers).map((provider) => 
                 (
@@ -69,7 +72,6 @@ const Nav = () => {
 
          {/* Mobile Nav */}
         <div className="sm:hidden flex relative">
-           {/* {true ? ( */}
            {session?.user ? (
             <div className="flex">
                 <Image
@@ -110,7 +112,6 @@ const Nav = () => {
             </div>
            ): (
             <>
-                {/* {false &&  */}
                  {providers && 
                 Object.values(providers).map((provider) => 
                 (
