@@ -2,7 +2,7 @@
 import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {signIn, singOut, useSession, getProviders, signOut} from 'next-auth/react';
+import {signIn, useSession, getProviders, signOut} from 'next-auth/react';
 
 const Nav = () => {
     const {data: session} = useSession();

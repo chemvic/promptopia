@@ -24,7 +24,7 @@ const [searchText, setSearchText] = useState('');
 const [posts, setPosts] = useState([]);
 
 const handleSearchChange = (event) =>{
-
+    setSearchText(event.target.value)
 };
 
 useEffect(() =>{
@@ -37,6 +37,12 @@ useEffect(() =>{
   fetchPosts();
 },[]);
 
+const filter = () => {
+    return  posts.filter(({prompt, tag, creator})=>prompt.toLowerCase().includes(searchText.toLowerCase())
+     || tag.toLowerCase().includes(searchText.toLowerCase())
+     || creator.username.toLowerCase().includes(searchText.toLowerCase()));
+};
+  const filteredBySearchText = filter();
   return (
     <section className='feed'>
       <form  className="relative w-full flex-center ">
@@ -51,7 +57,7 @@ useEffect(() =>{
       </form>
 
       <PromptCardList
-      data={posts}
+      data={filteredBySearchText}
       handleTagClick={()=>{}}
       />
     </section>
