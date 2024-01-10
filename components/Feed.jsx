@@ -24,8 +24,15 @@ const [searchText, setSearchText] = useState('');
 const [posts, setPosts] = useState([]);
 
 const handleSearchChange = (event) =>{
-    setSearchText(event.target.value)
+    // setTimeout( ()=>setSearchText(event.target.value), 300);  
+     setSearchText(event.target.value)
 };
+
+const handleTagClick = (tagText) => {
+    setSearchText(tagText);
+};
+
+
 
 useEffect(() =>{
   const fetchPosts = async () =>{
@@ -58,7 +65,8 @@ const filter = () => {
 
       <PromptCardList
       data={filteredBySearchText}
-      handleTagClick={()=>{}}
+      handleTagClick={handleTagClick}
+      // handleUserClick={handleUserClick}
       />
     </section>
   )

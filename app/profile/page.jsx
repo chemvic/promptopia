@@ -18,8 +18,7 @@ const MyProfile = () => {
         };
       
         if (session?.user.id) {
-           fetchPosts(); 
-             
+           fetchPosts();              
         };
       
       },[]);
@@ -46,7 +45,7 @@ const MyProfile = () => {
     };
   return (
     <Profile
-        name={posts[0]?.creator.username}
+        name={session?.user.name}
         desc='Welcome to your profile page'
         data={posts}
         handleEdit={handleEdit}
