@@ -7,7 +7,7 @@ import Image from 'next/image';
 import {signIn, useSession, getProviders, signOut} from 'next-auth/react';
 
 const Nav = () => {
-    const router = useRouter();
+    // const router = useRouter();
     const {data: session} = useSession();
     const [providers, setProviders]= useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -41,8 +41,7 @@ const Nav = () => {
                     <button 
                     type='button' 
                     onClick={
-                        () =>{  signOut().then(() => router.push('/'));
-                       }}
+                        () => signOut({callbackUrl: '/'})}
                     className='outline_btn'
                     >
                         Sign Out
@@ -105,8 +104,7 @@ const Nav = () => {
                                 type='button'
                                 onClick={() =>{
                                     setToggleDropdown(false);
-                                    router.push('/');
-                                    signOut();
+                                    signOut({callbackUrl: '/'});
                                     
                                 }}
                                 className='black_btn mt-5 w-full'
