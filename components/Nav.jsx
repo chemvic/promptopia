@@ -7,7 +7,6 @@ import Image from 'next/image';
 import {signIn, useSession, getProviders, signOut} from 'next-auth/react';
 
 const Nav = () => {
-    // const router = useRouter();
     const {data: session} = useSession();
     const [providers, setProviders]= useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
